@@ -22,8 +22,6 @@ class APITest extends TestCase
     public function test_must_get_boards(): void
     {
         $response = $this->get('/boards');
-        $response->assertJson(
-            fn (AssertableJson $json) => $json->count('data', 1)->etc()
-        );
+        $response->assertJsonCount(1);
     }
 }
