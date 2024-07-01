@@ -33,6 +33,7 @@ class APITest extends TestCase
         $columns = $response->decodeResponseJson();
         $this->assertEquals(4, $columns->count());
         $this->assertEquals('Coluna A', $columns[0]['name']);
+        $this->assertEquals(true, $columns[0]['hasEstimative']);
         $this->assertEquals('Coluna B', $columns[1]['name']);
         $this->assertEquals('Coluna C', $columns[2]['name']);
         $this->assertEquals('Coluna D', $columns[3]['name']);
