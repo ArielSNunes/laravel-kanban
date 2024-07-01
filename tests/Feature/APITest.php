@@ -22,8 +22,29 @@ class APITest extends TestCase
     public function test_must_get_boards(): void
     {
         $response = $this->get('/boards');
-        $json = $response->decodeResponseJson();
-        $this->assertEquals(1, $json->count());
-        $this->assertEquals('Projeto 01', $json[0]['name']);
+        $boards = $response->decodeResponseJson();
+        $this->assertEquals(1, $boards->count());
+        $this->assertEquals('Projeto 01', $boards[0]['name']);
+    }
+
+    public function test_must_get_columns_from_board(): void
+    {
+        $response = $this->get('/boards/1/columns');
+        $columns = $response->decodeResponseJson();
+        $this->assertEquals(4, $columns->count());
+        $this->assertEquals('Coluna A', $columns[0]['name']);
+        $this->assertEquals('Coluna B', $columns[1]['name']);
+        $this->assertEquals('Coluna C', $columns[2]['name']);
+        $this->assertEquals('Coluna D', $columns[3]['name']);
+    }
+
+    public function test_must_get_cards_from_column_from_board(): void
+    {
+        $response = $this->get('/boards/1/columns/1/cards');
+        $columns = $response->decodeResponseJson();
+        $this->assertEquals(3, $columns->count());
+        $this->assertEquals('Atividade 01', $columns[0]['title']);
+        $this->assertEquals('Atividade 02', $columns[1]['title']);
+        $this->assertEquals('Atividade 03', $columns[2]['title']);
     }
 }
