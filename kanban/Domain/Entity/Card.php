@@ -1,6 +1,6 @@
 <?php
 
-namespace Kanban\Entity;
+namespace Kanban\Domain\Entity;
 
 use Exception;
 

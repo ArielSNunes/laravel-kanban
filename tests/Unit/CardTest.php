@@ -2,7 +2,7 @@
 
 namespace Tests\Unit;
 
-use Kanban\Entity\Card;
+use Kanban\Domain\Entity\Card;
 use PHPUnit\Framework\TestCase;
 
 class CardTest extends TestCase

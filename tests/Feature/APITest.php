@@ -25,6 +25,7 @@ class APITest extends TestCase
         $boards = $response->decodeResponseJson();
         $this->assertEquals(1, $boards->count());
         $this->assertEquals('Projeto 01', $boards[0]['name']);
+        // $this->assertEquals(6, $boards[0]['estimative']);
     }
 
     public function test_must_get_columns_from_board(): void

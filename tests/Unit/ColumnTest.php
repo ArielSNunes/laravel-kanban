@@ -2,7 +2,7 @@
 
 namespace Tests\Unit;
 
-use Kanban\Entity\Column;
+use Kanban\Domain\Entity\Column;
 use PHPUnit\Framework\TestCase;
 
 class ColumnTest extends TestCase
