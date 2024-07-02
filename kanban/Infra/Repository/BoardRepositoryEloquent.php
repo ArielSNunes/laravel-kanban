@@ -4,7 +4,6 @@ namespace Kanban\Infra\Repository;
 
 use Kanban\Domain\Entity\Board;
 use Kanban\Domain\Repository\BoardRepository;
-use Kanban\Domain\Repository\EloquentRepository;
 use Kanban\Infra\Model\Board as ModelBoard;
 
 class BoardRepositoryEloquent implements BoardRepository
