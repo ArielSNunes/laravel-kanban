@@ -10,4 +10,6 @@ interface BoardRepository
      * @return Board[]
      */
     public function findAll(): array;
+
+    public function findById(int $boardId): Board;
 }

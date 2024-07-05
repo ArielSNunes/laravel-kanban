@@ -28,4 +28,16 @@ class BoardServiceTest extends TestCase
         $this->assertEquals('Projeto 01', $boards[0]->name);
         // $this->assertEquals(6, $boards[0]->estimative);
     }
+
+    public function test_get_board(): void
+    {
+        $boardService = new BoardService(new BoardRepositoryQueryBuilder());
+        $boards = $boardService->getBoard(1);
+        $this->assertEquals('Projeto 01', $boards->name);
+        $this->assertEquals(3, count($boards->columns));
+        $this->assertEquals(6, count($boards->estimative));
+        list($a, $b, $c) = $boards->columns;
+        $this->assertEquals(6, $a->estimative);
+        // $this->assertEquals(6, $boards[0]->estimative);
+    }
 }

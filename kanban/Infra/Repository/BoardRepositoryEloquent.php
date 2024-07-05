@@ -2,6 +2,7 @@
 
 namespace Kanban\Infra\Repository;
 
+use Exception;
 use Kanban\Domain\Entity\Board;
 use Kanban\Domain\Repository\BoardRepository;
 use Kanban\Infra\Model\Board as ModelBoard;
@@ -16,5 +17,15 @@ class BoardRepositoryEloquent implements BoardRepository
             return $board;
         });
         return $boards->toArray();
+    }
+
+    public function findById(int $boardId): Board
+    {
+        $boardData = ModelBoard::find($boardId);
+        if (!$boardData) {
+            throw new Exception('Board not found');
+        }
+
+        return new Board($boardData->name);
     }
 }

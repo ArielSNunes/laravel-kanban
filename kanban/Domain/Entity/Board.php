@@ -6,8 +6,6 @@ use Exception;
 
 class Board
 {
-    public ?int $estimative;
-
     public function __construct(public readonly string $name)
     {
         if (empty($name)) {
