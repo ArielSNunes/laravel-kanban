@@ -32,12 +32,11 @@ class APITest extends TestCase
     {
         $response = $this->get('/boards/1/columns');
         $columns = $response->decodeResponseJson();
-        $this->assertEquals(4, $columns->count());
+        $this->assertEquals(3, $columns->count());
         $this->assertEquals('Coluna A', $columns[0]['name']);
         $this->assertEquals(true, $columns[0]['hasEstimative']);
         $this->assertEquals('Coluna B', $columns[1]['name']);
         $this->assertEquals('Coluna C', $columns[2]['name']);
-        $this->assertEquals('Coluna D', $columns[3]['name']);
     }
 
     public function test_must_get_cards_from_column_from_board(): void

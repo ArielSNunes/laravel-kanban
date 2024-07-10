@@ -11,7 +11,11 @@ use Kanban\Service\CardService;
 use Kanban\Service\ColumnService;
 
 Route::get('/boards', function () {
-    $boardService = new BoardService(new BoardRepositoryEloquent);
+    $boardService = new BoardService(
+        new BoardRepositoryEloquent(),
+        new ColumnRepositoryQueryBuilder(),
+        new CardRepositoryQueryBuilder()
+    );
     $boards = $boardService->getBoards();
     return $boards;
 });

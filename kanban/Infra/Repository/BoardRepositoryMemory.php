@@ -23,4 +23,9 @@ class BoardRepositoryMemory implements BoardRepository
     {
         return $this->boards;
     }
+
+    public function findById(int $boardId): Board
+    {
+        return new Board('Projeto 01');
+    }
 }
