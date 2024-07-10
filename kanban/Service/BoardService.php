@@ -3,6 +3,7 @@
 namespace Kanban\Service;
 
 use Kanban\Domain\Entity\Board;
+use Kanban\Domain\Entity\Card;
 use Kanban\Domain\Output\ColumnOutput;
 use Kanban\Domain\Output\GetBoardOutput;
 use Kanban\Domain\Repository\BoardRepository;
@@ -37,11 +38,21 @@ class BoardService
 
         $columns = $this->columnRepository->findAllByBoardId($boardId);
         foreach ($columns as $column) {
+            $estimative = 0;
+            $cards = $this->cardRepository->findAllByColumnId($column->id);
             $columnOutput = new ColumnOutput();
+            $columnOutput->cards = [];
+            $columnOutput->estimative = 0;
+            foreach ($cards as $card) {
+                $columnOutput->estimative += $card->estimative;
+                array_push(
+                    $columnOutput->cards,
+                    new Card($card->title, $card->estimative)
+                );
+            }
             $columnOutput->name = $column->name;
             $columnOutput->hasEstimative = $column->hasEstimative;
-            $columnOutput->estimative = 0;
-            $columnOutput->cards = [];
+            $getBoardOutput->estimative += $columnOutput->estimative;
             array_push($getBoardOutput->columns, $columnOutput);
         }
         return $getBoardOutput;

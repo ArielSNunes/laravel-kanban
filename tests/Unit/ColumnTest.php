@@ -12,7 +12,7 @@ class ColumnTest extends TestCase
      */
     public function test_column_can_be_created(): void
     {
-        $column = new Column('Coluna A', true);
+        $column = new Column(1, 'Coluna A', true);
         $this->assertEquals('Coluna A', $column->name);
         $this->assertTrue($column->hasEstimative);
     }
@@ -20,6 +20,6 @@ class ColumnTest extends TestCase
     public function test_column_must_have_title(): void
     {
         $this->expectExceptionMessage('Name is required');
-        new Column('', true);
+        new Column(1, '', true);
     }
 }

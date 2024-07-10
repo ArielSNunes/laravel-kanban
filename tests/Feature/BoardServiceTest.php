@@ -53,6 +53,13 @@ class BoardServiceTest extends TestCase
         $this->assertEquals(0, $b->estimative);
         $this->assertEquals(0, $c->estimative);
         $this->assertEquals(6, $board->estimative);
+        list($cardA, $cardB, $cardC) = $a->cards;
+        $this->assertEquals('Atividade 01', $cardA->title);
+        $this->assertEquals('Atividade 02', $cardB->title);
+        $this->assertEquals('Atividade 03', $cardC->title);
+        $this->assertEquals(3, $cardA->estimative);
+        $this->assertEquals(2, $cardB->estimative);
+        $this->assertEquals(1, $cardC->estimative);
         // $this->assertEquals(6, $boards[0]->estimative);
     }
 }
