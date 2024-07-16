@@ -38,7 +38,6 @@ class BoardService
 
         $columns = $this->columnRepository->findAllByBoardId($boardId);
         foreach ($columns as $column) {
-            $estimative = 0;
             $cards = $this->cardRepository->findAllByColumnId($column->id);
             $columnOutput = new ColumnOutput();
             $columnOutput->cards = [];
