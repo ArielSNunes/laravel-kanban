@@ -6,8 +6,10 @@ use Exception;
 
 class Board
 {
-    public function __construct(public readonly string $name)
-    {
+    public function __construct(
+        public readonly int $id,
+        public readonly string $name
+    ) {
         if (empty($name)) {
             throw new Exception('Name is required');
         }

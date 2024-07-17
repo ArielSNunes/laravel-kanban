@@ -12,7 +12,7 @@ class CardTest extends TestCase
      */
     public function test_card_can_be_created(): void
     {
-        $card = new Card('Atividade 01', 3);
+        $card = new Card(1, 1, 'Atividade 01', 3);
         $this->assertEquals('Atividade 01', $card->title);
         $this->assertEquals(3, $card->estimative);
     }
@@ -20,12 +20,12 @@ class CardTest extends TestCase
     public function test_card_must_have_title(): void
     {
         $this->expectExceptionMessage('Title is required');
-        new Card('', 3);
+        new Card(1, 1, '', 3);
     }
 
     public function test_card_must_have_positive_estimative(): void
     {
         $this->expectExceptionMessage('Estimative must be positive');
-        new Card('Atividade 01', -3);
+        new Card(1, 1, 'Atividade 01', -3);
     }
 }

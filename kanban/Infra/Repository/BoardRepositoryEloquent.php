@@ -13,7 +13,7 @@ class BoardRepositoryEloquent implements BoardRepository
     {
         $boardsData = ModelBoard::all(['name', 'id']);
         $boards = $boardsData->map(function ($boardData) {
-            $board = new Board($boardData->name);
+            $board = new Board($boardData->id, $boardData->name);
             return $board;
         });
         return $boards->toArray();
@@ -26,6 +26,6 @@ class BoardRepositoryEloquent implements BoardRepository
             throw new Exception('Board not found');
         }
 
-        return new Board($boardData->name);
+        return new Board($boardData->id, $boardData->name);
     }
 }

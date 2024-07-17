@@ -7,6 +7,8 @@ use Exception;
 class Card
 {
     public function __construct(
+        public readonly int $columnId,
+        public readonly int $id,
         public readonly string $title,
         public readonly int $estimative
     ) {

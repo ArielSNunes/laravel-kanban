@@ -7,6 +7,7 @@ use Exception;
 class Column
 {
     public function __construct(
+        public readonly int $boardId,
         public readonly int $id,
         public readonly string $name,
         public readonly bool $hasEstimative

@@ -15,7 +15,7 @@ class BoardRepositoryMemory implements BoardRepository
     public function __construct()
     {
         $this->boards = [
-            new Board('Projeto 01')
+            new Board(1, 'Projeto 01')
         ];
     }
 
@@ -26,6 +26,6 @@ class BoardRepositoryMemory implements BoardRepository
 
     public function findById(int $boardId): Board
     {
-        return new Board('Projeto 01');
+        return new Board($boardId, 'Projeto 01');
     }
 }
