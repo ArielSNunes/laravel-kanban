@@ -6,6 +6,7 @@ use Exception;
 use Illuminate\Support\Facades\DB;
 use Kanban\Domain\Entity\Column;
 use Kanban\Domain\Repository\ColumnRepository;
+use Kanban\Infra\Model\Column as ModelColumn;
 
 class ColumnRepositoryQueryBuilder implements ColumnRepository
 {

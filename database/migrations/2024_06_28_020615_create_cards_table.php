@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('cards', function (Blueprint $table) {
-            $table->id();
+            $table->id()->from(1)->primary();
             $table->foreignId('column_id')->constrained('columns', 'id');
             $table->string('title');
             $table->smallInteger('estimative');

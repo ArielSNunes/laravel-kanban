@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('columns', function (Blueprint $table) {
-            $table->id();
+            $table->id()->from(1)->primary();
             $table->foreignId('board_id')->constrained('boards', 'id');
             $table->string('name');
             $table->boolean('has_estimative');
